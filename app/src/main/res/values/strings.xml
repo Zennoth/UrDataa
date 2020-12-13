@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">UrDataa</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+
+    <string name="nip">NIP</string>
+    <string name="nidn">Password</string>
+    <string name="lecturer_name">Name</string>
+    <string name="lecturer_email">Email</string>
+    <string name="description">Description</string>
+    <string name="lecturer_gender">Gender</string>
+    <string name="Lecturer_phone">Phone</string>
+    <string name="lecturer_line_account">Line Account</string>
+
+    <string name="event_name">Event Name</string>
+    <string name="date">Date</string>
+    <string name="location">Location</string>
+    <string name="event_detail">Event Detail</string>
+
+</resources>
