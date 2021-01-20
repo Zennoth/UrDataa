@@ -11,6 +11,9 @@
     <string name="lecturer_gender">Gender</string>
     <string name="Lecturer_phone">Phone</string>
     <string name="lecturer_line_account">Line Account</string>
+    <string name="edit">Edit</string>
+    <string name="logout">Log Out</string>
+    <string name="submitevent">Submit</string>
 
     <string name="event_name">Event Name</string>
     <string name="date">Date</string>

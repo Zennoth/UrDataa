@@ -16,12 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.urdataa.HomeActivity;
-import com.example.urdataa.MainActivity;
 import com.example.urdataa.R;
 import com.example.urdataa.utils.SharedPreferenceHelper;
-
-import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

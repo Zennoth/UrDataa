@@ -1,10 +1,12 @@
-package com.example.urdataa;
+package com.example.urdataa.utils;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import com.example.urdataa.R;
 
-public class MainActivity extends AppCompatActivity {
+
+public class ProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

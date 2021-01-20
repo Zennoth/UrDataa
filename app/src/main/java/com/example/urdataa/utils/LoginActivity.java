@@ -1,4 +1,4 @@
-package com.example.urdataa;
+package com.example.urdataa.utils;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,8 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.urdataa.R;
+
+
 import com.example.urdataa.model.response.TokenResponse;
-import com.example.urdataa.utils.SharedPreferenceHelper;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity implements TextWatcher {

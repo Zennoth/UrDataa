@@ -1,4 +1,4 @@
-package com.example.urdataa;
+package com.example.urdataa.utils;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,9 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.globalexperience.Fragments.HistoryFragment;
-import com.example.globalexperience.Fragments.PendingFragment;
-import com.example.globalexperience.Fragments.ProfileFragment;
+import com.example.urdataa.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
