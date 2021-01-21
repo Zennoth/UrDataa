@@ -3,54 +3,54 @@ package com.example.urdataa.model.local;
 import com.google.gson.annotations.SerializedName;
 
 public class Event {
-    @SerializedName("event_title")
-    String title;
-    @SerializedName("event_description")
-    String description;
-    @SerializedName("created_by")
-    String created_by;
-    @SerializedName("status")
-    String status;
+    @SerializedName("event_name")
+    String eventname;
+    @SerializedName("event_date")
+    String eventdate;
+    @SerializedName("location")
+    String location;
+    @SerializedName("detail")
+    String detail;
 
     public Event() {
     }
 
     public Event(String title, String description, String created_by, String status) {
-        this.title = title;
-        this.description = description;
-        this.created_by = created_by;
-        this.status = status;
+        this.eventname = title;
+        this.eventdate = eventdate;
+        this.location = created_by;
+        this.detail = status;
     }
 
-    public String getTitle() {
-        return title;
+    public String getEventName() {
+        return eventname;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.eventname = title;
     }
 
-    public String getDescription() {
-        return description;
+    public String getEventdate() {
+        return eventdate;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.eventdate = description;
     }
 
-    public String getCreated_by() {
-        return created_by;
+    public String getLocation() {
+        return location;
     }
 
-    public void setCreated_by(String created_by) {
-        this.created_by = created_by;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public String getStatus() {
-        return status;
+    public String getDetail() {
+        return detail;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setDetail(String detail) {
+        this.detail = detail;
     }
 }

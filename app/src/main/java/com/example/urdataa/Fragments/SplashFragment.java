@@ -39,7 +39,6 @@ public class SplashFragment extends Fragment {
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             NavDirections action;
             if (helper.getAccessToken().isEmpty()) {
-                //request ke api check apakah token masih jalan / tidak (kalau tidak send request lagi pakai refresh token)
                 action = SplashFragmentDirections.actionSplashFragmentToLoginFragment();
             }else{
                 action = SplashFragmentDirections.actionSplashFragmentToProfileFragment();
