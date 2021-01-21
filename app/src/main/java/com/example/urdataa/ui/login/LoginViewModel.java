@@ -1,4 +1,4 @@
-package com.example.urdataa.Fragments;
+package com.example.urdataa.ui.login;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -14,7 +14,11 @@ public class LoginViewModel extends ViewModel {
         repository = AuthRepository.getInstance();
     }
 
-    public MutableLiveData<TokenResponse> login(String email, String password) {
+    public MutableLiveData<TokenResponse> login(String email, String password){
         return repository.login(email, password);
+    }
+
+    public MutableLiveData<TokenResponse> loginAdmin(String email, String password){
+        return repository.loginAdmin(email, password);
     }
 }

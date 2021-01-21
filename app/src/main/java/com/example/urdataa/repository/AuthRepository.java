@@ -1,48 +1,48 @@
 package com.example.urdataa.repository;
 
+import android.app.Application;
 import android.util.Log;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.urdataa.MyApplication;
+import com.example.urdataa.model.response.LogoutResponse;
 import com.example.urdataa.model.response.TokenResponse;
 import com.example.urdataa.network.RetrofitService;
-import com.google.gson.Gson;
+import com.example.urdataa.utils.SharedPreferenceHelper;
 import com.google.gson.JsonObject;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AuthRepository {
+
     private static AuthRepository authRepository;
     private RetrofitService apiService;
     private static final String TAG = "AuthRepository";
+    private SharedPreferenceHelper prefs;
 
-    private AuthRepository() {
-        apiService = RetrofitService.getInstance("");
+    private AuthRepository(){
+        prefs = SharedPreferenceHelper.getInstance(MyApplication.getContext());
+        apiService=RetrofitService.getInstance(prefs.getAccessToken());
     }
 
-    public static AuthRepository getInstance() {
-        if (authRepository == null) {
-            authRepository = new AuthRepository();
-        }
+    public static AuthRepository getInstance(){
+        authRepository = new AuthRepository();
         return authRepository;
     }
 
-    public MutableLiveData<TokenResponse> login(String email, String password) {
+    public MutableLiveData<TokenResponse> login(String email, String password){
         MutableLiveData<TokenResponse> tokenResponse = new MutableLiveData<>();
 
         apiService.login(email, password).enqueue(new Callback<TokenResponse>() {
             @Override
             public void onResponse(Call<TokenResponse> call, Response<TokenResponse> response) {
-                Log.d(TAG, "onResponse: " + response.code());
-                if (response.isSuccessful()) {
-                    if (response.body() != null) {
-                        Log.d(TAG, "onResponse: " + response.body().getAccessToken());
+                Log.d(TAG, "onResponse: "+response.code());
+                if (response.isSuccessful()){
+                    if (response.body()!=null){
+                        Log.d(TAG, "onResponse: "+response.body().getAccessToken());
                         tokenResponse.postValue(response.body());
                     }
                 }
@@ -50,14 +50,57 @@ public class AuthRepository {
 
             @Override
             public void onFailure(Call<TokenResponse> call, Throwable t) {
-                Log.d(TAG, "onFailure: " + t.getMessage());
+                Log.d(TAG, "onFailure: "+t.getMessage());
             }
         });
-
         return tokenResponse;
     }
 
-    public void register() {
+    public MutableLiveData<TokenResponse> loginAdmin(String email, String password){
+        MutableLiveData<TokenResponse> tokenResponse = new MutableLiveData<>();
 
+        apiService.loginAdmin(email, password).enqueue(new Callback<TokenResponse>() {
+            @Override
+            public void onResponse(Call<TokenResponse> call, Response<TokenResponse> response) {
+                Log.d(TAG, "onResponse: "+response.code());
+                if (response.isSuccessful()){
+                    if (response.body()!=null){
+                        Log.d(TAG, "onResponse: "+response.body().getAccessToken());
+                        tokenResponse.postValue(response.body());
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TokenResponse> call, Throwable t) {
+                Log.d(TAG, "onFailure: "+t.getMessage());
+            }
+        });
+        return tokenResponse;
+    }
+
+    public MutableLiveData<LogoutResponse> logout(){
+
+        MutableLiveData<LogoutResponse> tokenResponse = new MutableLiveData<>();
+
+        apiService.logout().enqueue(new Callback<LogoutResponse>() {
+            @Override
+            public void onResponse(Call<LogoutResponse> call, Response<LogoutResponse> response) {
+                Log.d(TAG, "onResponse: "+response.code());
+                Log.d(TAG, "onResponse: "+response.message());
+                if (response.isSuccessful()){
+                    if (response.body()!=null){
+                        Log.d(TAG, "onResponse: "+response.body().getMessage());
+                        tokenResponse.postValue(response.body());
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LogoutResponse> call, Throwable t) {
+                Log.d(TAG, "onFailure: "+t.getMessage());
+            }
+        });
+        return tokenResponse;
     }
 }

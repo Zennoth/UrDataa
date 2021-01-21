@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class TokenResponse {
 
+    @SerializedName("message")
+    String message;
+
     @SerializedName("token_type")
     String tokenType;
 
@@ -15,6 +18,10 @@ public class TokenResponse {
 
     @SerializedName("refresh_token")
     String refreshToken;
+
+    public String getMessage() {
+        return message;
+    }
 
     public String getTokenType() {
         return tokenType;
@@ -32,7 +39,7 @@ public class TokenResponse {
         return refreshToken;
     }
 
-    public String getAuthorization() {
-        return this.tokenType + " " + this.accessToken;
+    public String getAuthorization(){
+        return this.tokenType + "" + this.accessToken;
     }
 }

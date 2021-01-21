@@ -1,7 +1,7 @@
 package com.example.urdataa.network;
 
 import com.example.urdataa.model.response.EventResponse;
-import com.example.urdataa.model.response.LecturerResponse;
+import com.example.urdataa.model.response.LogoutResponse;
 import com.example.urdataa.model.response.TokenResponse;
 import com.google.gson.JsonObject;
 
@@ -15,14 +15,21 @@ public interface Endpoints {
 
     @POST("api-login")
     @FormUrlEncoded
-    Call<TokenResponse> login (@Field("email") String email, @Field("password") String password);
+    Call<TokenResponse> login(@Field("email")String email, @Field("password")String password);
+
+    @POST("api-loginadmin")
+    @FormUrlEncoded
+    Call<TokenResponse> loginAdmin(@Field("email")String email, @Field("password")String password);
 
     @GET("events")
     Call<EventResponse> getEvents();
 
-    @GET("Lecturer")
-    Call<LecturerResponse> getLecturers();
+    @GET("eventsU")
+    Call<EventResponse> getEventsU();
 
     @POST("logout")
-    Call<JsonObject> logout();
+    Call<LogoutResponse> logout();
+
+
 }
+

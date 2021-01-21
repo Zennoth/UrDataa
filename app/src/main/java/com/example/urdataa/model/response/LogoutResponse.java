@@ -5,11 +5,17 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class EventResponse {
-    @SerializedName("data")
+public class LogoutResponse {
+
+    @SerializedName("message")
+    String message;
+
     private List<Event> results;
 
-    public List<Event> getResults() {
-        return results;
+    public String getMessage() {
+        return message;
     }
+
+    public List<Event>getResults(){return results;}
+
 }

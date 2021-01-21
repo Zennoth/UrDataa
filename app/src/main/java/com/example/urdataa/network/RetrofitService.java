@@ -1,48 +1,50 @@
 package com.example.urdataa.network;
 
-import android.util.Log;
-
 import com.example.urdataa.model.response.EventResponse;
-import com.example.urdataa.model.response.LecturerResponse;
+import com.example.urdataa.model.response.LogoutResponse;
 import com.example.urdataa.model.response.TokenResponse;
 import com.example.urdataa.utils.Constants;
 import com.google.gson.JsonObject;
 
+import java.io.IOException;
+
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.Response;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitService {
-    private Endpoints endpoints;
-    private static RetrofitService service;
-    private static final String TAG = "RetrofitService";
 
-    private RetrofitService(String token) {
-        Log.d(TAG, "RetrofitService: " + token);
+    private final Endpoints api;
+    private static RetrofitService service;
+    private static final String TAG="RetrofitService";
+    private static String token = "";
+
+
+    private RetrofitService() {
 
         OkHttpClient.Builder client = new OkHttpClient.Builder();
 
-        if (token.equals("")) {
+        if (token.equals("")){
             client.addInterceptor(chain -> {
-                Request request = chain.request().newBuilder()
-                        .addHeader("Accept", "application/json").build();
+                Request request = chain.request().newBuilder().addHeader("Accept","application/json").build();
                 return chain.proceed(request);
             });
         } else {
-            Log.d("tinara keren", "tintin");
             client.addInterceptor(chain -> {
-                Request request = chain.request().newBuilder()
-                        .addHeader("Accept", "application/json")
-                        .addHeader("Authorization", token)
+                Request request = chain.request()
+                        .newBuilder()
+                        .addHeader("Accept","application/json")
+                        .addHeader("Authorization",token)
                         .build();
-                Log.d("tinara hebat", "tintin");
                 return chain.proceed(request);
             });
         }
 
-        endpoints = new Retrofit.Builder()
+        api = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client.build())
@@ -50,28 +52,30 @@ public class RetrofitService {
                 .create(Endpoints.class);
     }
 
-    public static RetrofitService getInstance(String token) {
-        if (service == null) {
-            service = new RetrofitService(token);
-        } else if (!token.equals("")) {
-            service = new RetrofitService(token);
+    public static RetrofitService getInstance(String newtoken){
+
+        if (service==null || newtoken!=token){
+            token = newtoken;
+            service =new RetrofitService();
         }
         return service;
     }
 
-    public Call<TokenResponse> login(String email, String password) {
-        return endpoints.login(email, password);
+    public Call<TokenResponse> login(String email, String password){
+        return api.login(email, password);
     }
 
-    public Call<EventResponse> getEvents() {
-        return endpoints.getEvents();
+    public Call<TokenResponse> loginAdmin(String email, String password){
+        return api.loginAdmin(email, password);
     }
 
-    public Call<LecturerResponse> geLecturers() {
-        return endpoints.getLecturers();
+    public Call<EventResponse> getEvents(){
+        return api.getEvents();
     }
 
-    public Call<JsonObject> logout() {
-        return endpoints.logout();
+    public Call<EventResponse> getEventsU(){return api.getEventsU();}
+
+    public Call<LogoutResponse> logout(){
+        return api.logout();
     }
 }
