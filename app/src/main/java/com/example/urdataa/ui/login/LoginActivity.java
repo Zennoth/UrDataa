@@ -39,10 +39,10 @@ public class LoginActivity extends AppCompatActivity {
         viewModel = ViewModelProviders.of(this).get(LoginViewModel.class);
         helper = SharedPreferenceHelper.getInstance(this);
 
-        btn_login = findViewById(R.id.btn_login);
+        btn_login = findViewById(R.id.buttonlogin);
 
-        emailTIL = findViewById(R.id.til_email);
-        passwordTIL = findViewById(R.id.til_pass);
+        emailTIL = findViewById(R.id.inputemail);
+        passwordTIL = findViewById(R.id.inputpassword);
 
 
         btn_login.setOnClickListener(new View.OnClickListener() {

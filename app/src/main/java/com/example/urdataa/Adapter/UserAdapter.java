@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.urdataa.R;
 import com.example.urdataa.model.Event;
+import com.example.urdataa.ui.user.UserDetailActivity;
 
 import java.util.List;
 

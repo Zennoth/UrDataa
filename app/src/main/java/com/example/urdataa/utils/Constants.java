@@ -11,4 +11,3 @@ public class Constants {
 //    public final static String BASE_URL="http://192.168.100.106/Capres/public/api/";// LAN jo
 
 }
-
