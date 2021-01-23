@@ -32,7 +32,7 @@ public class UserDetailActivity extends AppCompatActivity {
         ednameevent = findViewById(R.id.ed_event_name);
         edlecturer = findViewById(R.id.ed_lecturer);
         edlecturenirp = findViewById(R.id.ed_lecturer_nip);
-        edeventdate = findViewById(R.id.ed_event_date;
+        edeventdate = findViewById(R.id.ed_event_date);
         edeventlocation = findViewById(R.id.ed_event_location);
         edeventdesc = findViewById(R.id.ed_event_desc);
 
