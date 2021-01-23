@@ -39,7 +39,7 @@ public class UserEventActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_user);
 
-        rv_user = findViewById(R.id.rv_user);
+        rv_user = findViewById(R.id.rvevent);
         rv_user.setLayoutManager(new LinearLayoutManager(UserEventActivity.this));
         userAdapter = new UserAdapter(UserEventActivity.this);
 
@@ -50,7 +50,7 @@ public class UserEventActivity extends AppCompatActivity {
 
         viewModel.getEvents().observe(this,observeViewModel);
 
-        btn_logout = findViewById(R.id.btn_user_logout);
+        btn_logout = findViewById(R.id.buttonlogout);
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override

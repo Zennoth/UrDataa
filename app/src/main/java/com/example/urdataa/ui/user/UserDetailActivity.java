@@ -13,7 +13,7 @@ import com.example.urdataa.R;
 import com.example.urdataa.model.Event;
 
 public class UserDetailActivity extends AppCompatActivity {
-    TextView tvnama, tvnamaevent, tvtanggal, tvpembimbing, tvketeranganevent, tvlinkgdrive, tvnamaprestasi;
+    TextView ednamatitle, ednameevent, edlecturer, edlecturenirp, edeventdate, edeventlocation, edeventdesc;
 
 
     @Override
@@ -26,23 +26,23 @@ public class UserDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Event event = intent.getParcelableExtra("data");
 
-        Log.e("datanya", event.getEvent());
+        Log.e("datanya", event.getEventname());
 
-        tvnamaprestasi = findViewById(R.id.tvA_nama_prestasi);
-        tvnama = findViewById(R.id.tvA_nama);
-        tvnamaevent= findViewById(R.id.tvA_nama_event);
-        tvtanggal= findViewById(R.id.tvA_tanggal_input);
-        tvpembimbing= findViewById(R.id.tvA_pembimbing);
-        tvketeranganevent= findViewById(R.id.tvA_keterangan_event);
-        tvlinkgdrive= findViewById(R.id.tvA_link_gdrive);
+        ednamatitle = findViewById(R.id.ed_eventname);
+        ednameevent = findViewById(R.id.ed_event_name);
+        edlecturer = findViewById(R.id.ed_lecturer);
+        edlecturenirp = findViewById(R.id.ed_lecturer_nip);
+        edeventdate = findViewById(R.id.ed_event_date;
+        edeventlocation = findViewById(R.id.ed_event_location);
+        edeventdesc = findViewById(R.id.ed_event_desc);
 
-        tvnamaprestasi.setText(event.getPrestasi());
-        tvnama.setText(event.getUser());
-        tvnamaevent.setText(event.getEvent());
-        tvtanggal.setText(event.getTanggal());
-        tvpembimbing.setText(event.getDosen());
-        tvketeranganevent.setText(event.getPoint());
-        tvlinkgdrive.setText(event.getBukti());
+        ednamatitle.setText(event.getEventname());
+        ednameevent.setText(event.getEventname());
+        edlecturer.setText(event.getLecturer());
+        edlecturenirp.setText(event.getNip());
+        edeventdate.setText(event.getDate());
+        edeventlocation.setText(event.getLocation());
+        edeventdesc.setText(event.getDesc());
 
     }
 

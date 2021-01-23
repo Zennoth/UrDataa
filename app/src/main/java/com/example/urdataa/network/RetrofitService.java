@@ -43,7 +43,6 @@ public class RetrofitService {
                 return chain.proceed(request);
             });
         }
-
         api = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())

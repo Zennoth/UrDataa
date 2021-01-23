@@ -8,17 +8,18 @@ import com.google.gson.annotations.SerializedName;
 public class Event implements Parcelable {
 
     @SerializedName("event_id")
-    String event;
-    @SerializedName("user_id")
-    String user;
-    @SerializedName("prestasi")
-    String prestasi;
-    @SerializedName("bukti")
-    String bukti;
-    @SerializedName("dosen_id")
-    String dosen;
-    @SerializedName("point_id")
-    String point;
+    String eventname;
+    @SerializedName("lecturer_id")
+    String lecturer;
+    @SerializedName("lecturernip")
+    String nip;
+    @SerializedName("event_tanggal")
+    String date;
+    @SerializedName("event_lokasi")
+    String location;
+    @SerializedName("event_deskripsi")
+    String desc;
+
     @SerializedName("tanggal_input")
     String tanggal;
     @SerializedName("pesan")
@@ -28,12 +29,13 @@ public class Event implements Parcelable {
 
 
     protected Event(Parcel in) {
-        event = in.readString();
-        user = in.readString();
-        prestasi = in.readString();
-        bukti = in.readString();
-        dosen = in.readString();
-        point = in.readString();
+        eventname = in.readString();
+        lecturer = in.readString();
+        nip = in.readString();
+        date = in.readString();
+        location = in.readString();
+        desc = in.readString();
+
         tanggal = in.readString();
         pesan = in.readString();
         approved = in.readString();
@@ -51,53 +53,55 @@ public class Event implements Parcelable {
         }
     };
 
-    public String getEvent() {
-        return event;
+    public String getEventname() {
+        return eventname;
     }
 
-    public void setEvent(String event) {
-        this.event = event;
+    public void setEventname(String event) {
+        this.eventname = event;
     }
 
-    public String getUser() {
-        return user;
+    public String getLecturer() {
+        return lecturer;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setLecturer(String user) {
+        this.lecturer = user;
     }
 
-    public String getPrestasi() {
-        return prestasi;
+    public String getNip() {
+        return nip;
     }
 
-    public void setPrestasi(String prestasi) {
-        this.prestasi = prestasi;
+    public void setNip(String prestasi) {
+        this.nip = prestasi;
     }
 
-    public String getBukti() {
-        return bukti;
+    public String getDate() {
+        return date;
     }
 
-    public void setBukti(String bukti) {
-        this.bukti = bukti;
+    public void setDate(String bukti) {
+        this.date = bukti;
     }
 
-    public String getDosen() {
-        return dosen;
+    public String getLocation() {
+        return location;
     }
 
-    public void setDosen(String dosen) {
-        this.dosen = dosen;
+    public void setLocation(String dosen) {
+        this.location = dosen;
     }
 
-    public String getPoint() {
-        return point;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setPoint(String point) {
-        this.point = point;
+    public void setDesc(String point) {
+        this.desc = point;
     }
+
+
 
     public String getTanggal() {
         return tanggal;
@@ -130,12 +134,12 @@ public class Event implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(event);
-        parcel.writeString(user);
-        parcel.writeString(prestasi);
-        parcel.writeString(bukti);
-        parcel.writeString(dosen);
-        parcel.writeString(point);
+        parcel.writeString(eventname);
+        parcel.writeString(lecturer);
+        parcel.writeString(lecturer);
+        parcel.writeString(date);
+        parcel.writeString(location);
+        parcel.writeString(desc);
         parcel.writeString(tanggal);
         parcel.writeString(pesan);
         parcel.writeString(approved);

@@ -43,7 +43,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Event event = eventList.get(position);
-        holder.tvPrestasi.setText(event.getPrestasi());
+        holder.tvPrestasi.setText(event.getEventname());
         if(event.getApproved().equals("0")){
             holder.tvStatus.setText("PENDING");
         }else if (event.getApproved().equals("1")){
@@ -76,9 +76,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         private CardView cardview;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvPrestasi = itemView.findViewById(R.id.tv_user_nama_prestasi);
+            tvPrestasi = itemView.findViewById(R.id.tv_Event_Name);
             tvStatus = itemView.findViewById(R.id.tv_status);
-            cardview = itemView.findViewById(R.id.cardViewA);
+            cardview = itemView.findViewById(R.id.CardView);
         }
     }
 }
